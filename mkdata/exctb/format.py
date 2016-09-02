@@ -12,7 +12,8 @@ def parseline(linin):
 	lind=ewtmp.rfind("(")
 	uniwt=ewtmp[lind+1:rind]
 	tag,wd=uniwt.split(" ")
-	rs.append((wd,tag))
+	if wd:
+		rs.append((wd,tag))
 	tmp=tmp[rind+1:]
 	lind=tmp.find("(")
 	while lind!=-1:
@@ -22,7 +23,8 @@ def parseline(linin):
 		lind=ewtmp.rfind("(")
 		uniwt=ewtmp[lind+1:rind]
 		tag,wd=uniwt.split(" ")
-		rs.append((wd,tag))
+		if wd:
+			rs.append((wd,tag))
 		tmp=tmp[rind+1:]
 		lind=tmp.find("(")
 	return rs

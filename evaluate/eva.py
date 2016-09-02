@@ -21,8 +21,12 @@ def eva(stdf,rsf):
 					sline=sline.split("  ")
 					rline=rline.split("  ")
 					for i in xrange(len(sline)):
-						stag=sline[i].split("/")[-1]
-						rtag=rline[i].split("/")[-1]
+						tmp=sline[i]
+						ind=tmp.rfind("/")
+						stag=tmp[ind+1:]
+						tmp=rline[i]
+						ind=tmp.rfind("/")
+						rtag=tmp[ind+1:]
 						stc[stag]=stc.get(stag,0)+1
 						rsc[rtag]=rsc.get(rtag,0)+1
 						if stag==rtag:
@@ -57,5 +61,6 @@ def eva(stdf,rsf):
 	microf=2*microp*micror/(microp+micror)
 	print macrof,microf
 
+#eva("train.txt","trainrs.txt")
 eva("dev.txt","devrs.txt")
 eva("test.txt","testrs.txt")

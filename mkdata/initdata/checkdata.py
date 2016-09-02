@@ -5,23 +5,21 @@ reload(sys)
 sys.setdefaultencoding( "utf-8" )
 
 flg=set()
-with open("full.txt") as frd:
+with open("use.txt") as frd:
 	for line in frd:
 		tmp=line.strip()
 		if tmp:#
 			tmp=tmp.decode("utf-8")
 			tmp=tmp.split("  ")
-			ld=[]
 			for tmpu in tmp:
-				ind=tmpu.find("/")
+				ind=tmpu.rfind("/")
 				fg=tmpu[ind+1:]
 				if not fg in flg:
 					flg.add(fg)
-				if ind>0:
-					ld.append(tmpu)
-				else:
+				if ind<=0:
 					print tmpu
+					print line.decode("utf-8")
 flg=list(flg)
 flg.sort()
-with open("tag.txt","w") as f:
+with open("usetag.txt","w") as f:
 	f.write(("\n".join(flg)).encode("utf-8"))

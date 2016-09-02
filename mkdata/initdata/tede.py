@@ -14,7 +14,7 @@ def dealfile(fsrc,frs):
 					tmp=tmp.split("  ")
 					ld=[]
 					for tmpu in tmp:
-						ind=tmpu.find("/")
+						ind=tmpu.rfind("/")
 						if ind!=-1:
 							ld.append(tmpu[:ind])
 						else:
@@ -23,5 +23,6 @@ def dealfile(fsrc,frs):
 					f.write(tmp.encode("utf-8"))
 
 fd=["test","dev"]
+#fd=["train"]
 for fu in fd:
 	dealfile(fu+".txt",fu+"wr.txt")

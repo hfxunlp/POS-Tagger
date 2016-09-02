@@ -21,14 +21,14 @@ def exvec(mpf,vecf,rsf,vecsize):
 			tmp=line.strip()
 			if tmp:
 				tmp=tmp.decode("utf-8")
-				tmp=tmp.split(" ")
-				wd=tmp[0]
+				ind=tmp.find(" ")
+				wd=tmp[:ind]
 				if wd in wdm:
-					rsd[wdm[wd]]=tmp[1:]
+					rsd[wdm[wd]]=tmp[ind+1:]
 	with open(rsf,"w") as fwrt:
 		for i in xrange(wdm["UNK"]-1):
 			if i in rsd:
-				tmp=" ".join(rsd[i])+"\n"
+				tmp=rsd[i]+"\n"
 			else:
 				tmp=" ".join([str(i) for i in [random()*2-1 for j in xrange(vecsize)]])+"\n"
 			fwrt.write(tmp.encode("utf-8"))
@@ -36,4 +36,4 @@ def exvec(mpf,vecf,rsf,vecsize):
 		fwrt.write(tmp.encode("utf-8"))
 
 if __name__=="__main__":
-	exvec("wd.txt","vectors16.txt","wvec.txt",16)
+	exvec("wd.txt","vectors64.txt","wvec.txt",64)

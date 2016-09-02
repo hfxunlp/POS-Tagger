@@ -25,7 +25,9 @@ def colmap(fsrclp,srcp,rsp):
 							wdl=[]
 							tgl=[]
 							for tmpu in tmp:
-								wd,tg=tmpu.split("/")
+								ind=tmpu.rfind("/")
+								wd=tmpu[:ind]
+								tg=tmpu[ind+1:]
 								if not wd in wdm:
 									cind=str(wds)
 									wdm[wd]=cind
@@ -68,7 +70,9 @@ def trainmap(wdm,tgm,srcp,rsp,fsrclp):
 							wdl=[]
 							tgl=[]
 							for tmpu in tmp:
-								wd,tg=tmpu.split("/")
+								ind=tmpu.rfind("/")
+								wd=tmpu[:ind]
+								tg=tmpu[ind+1:]
 								if wd in wdm:
 									wdl.append(wdm[wd])
 								else:
