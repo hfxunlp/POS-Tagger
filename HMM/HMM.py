@@ -37,7 +37,7 @@ def splitwdtag(lin):
 	for lu in lin:
 		ind=lu.rfind("/")
 		wdl.append(lu[:ind])
-		tagl.append(lu[ind+1])
+		tagl.append(lu[ind+1:])
 	return wdl,tagl
 
 def countfile(fname):
