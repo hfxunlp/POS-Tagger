@@ -30,7 +30,7 @@ def exvec(mpf,vecf,rsf,vecsize):
 			if i in rsd:
 				tmp=rsd[i]+"\n"
 			else:
-				tmp=" ".join([str(i) for i in [random()*2-1 for j in xrange(vecsize)]])+"\n"
+				tmp=" ".join([str(random()*2-1) for i in xrange(vecsize)])+"\n"
 			fwrt.write(tmp.encode("utf-8"))
 		tmp=" ".join(["0" for i in xrange(vecsize)])
 		fwrt.write(tmp.encode("utf-8"))
