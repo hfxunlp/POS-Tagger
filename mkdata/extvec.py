@@ -26,7 +26,7 @@ def exvec(mpf,vecf,rsf,vecsize):
 				if wd in wdm:
 					rsd[wdm[wd]]=tmp[ind+1:]
 	with open(rsf,"w") as fwrt:
-		for i in xrange(wdm["UNK"]-1):
+		for i in xrange(1,wdm["UNK"]):
 			if i in rsd:
 				tmp=rsd[i]+"\n"
 			else:
