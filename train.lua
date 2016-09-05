@@ -141,6 +141,10 @@ function train()
 			else
 				if aminerr>=expdecaycycle then
 					aminerr=0
+					if lrdecayepochs>lrdecaycycle then
+						modlr=lr
+						lrdecayepochs=1
+					end
 					lrdecayepochs=lrdecayepochs+1
 					lr=modlr/(lrdecayepochs)
 				end

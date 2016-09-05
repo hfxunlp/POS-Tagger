@@ -8,3 +8,4 @@ csave=3
 nfeature=128
 nhidden=64
 nclass=43
+lrdecaycycle=8
