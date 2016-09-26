@@ -31,11 +31,15 @@ end
 end]]
 
 function saveObject(fname,objWrt)
+	local tmpod=nil
 	if not torch.isTensor(objWrt) then
-		objWrt:lightSerial()
+		tmpod=nn.Serial(objWrt)
+		tmpod:lightSerial()
+	else
+		tmpod=objWrt
 	end
 	local file=torch.DiskFile(fname,'w')
-	file:writeObject(objWrt)
+	file:writeObject(tmpod)
 	file:close()
 end
 
